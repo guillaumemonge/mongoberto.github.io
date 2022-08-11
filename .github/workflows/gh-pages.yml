@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-20.04
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,9 +22,20 @@ jobs:
         with:
           hugo-version: '0.101.0'
           extended: true
+      
+            #- name: Setup Ruby
+            # uses: ruby/setup-ruby@v1
+            #with:
+            # ruby-version: 2.7
 
+            #- run: gem install asciidoctor
+
+            #- name: Run Hugo
+            #run: |
+            #alias asciidoctor="asciidoctor --attribute=experimental=true --attribute=icons=font"
+            #hugo --minify
       - name: Build
-        run: hugo --minify
+        run: docker run --rm --volume $PWD:/src mongoberto/hugo-builder hugo --verbose --buildDrafts --buildFuture --destination ./public
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
