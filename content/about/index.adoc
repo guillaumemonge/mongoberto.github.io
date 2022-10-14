@@ -1,0 +1,1 @@
+"Welcome to my blog, I'm Guillaume, back-end developer. I post my notes, memos or other mind maps here, hoping that it will be useful to you!"

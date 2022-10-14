@@ -13,29 +13,43 @@ security:
       - "asciidoctor"
 
 params:
-  colortheme : "dark"
-  description : "Welcome to my blog, I'm Guillaume, back-end developer. I post my notes, memos or other mind maps here, hoping that it will be useful to you!"
+  colortheme : "white" # dark, light, white, or classic
+  description : "Les articles que tu trouveras sur ce blog ne représentent que ma compréhension d'un sujet.
+  Il se peut que tu relèves des incohérences au cours de ta lecture, dans ce cas n'hésite pas à me contacter, je serai ravi 
+  d'échanger !"
   mainSection : "posts"
-    #mainSectionTitle : "Notes"
+  mainSectionTitle : "Articles"
+  showAllPostsOnHomePage : false # default
+  postsOnHomePage : 5 # this option will be ignored if showAllPostsOnHomePage is set to true
+#  tagsOverview : true # show tags overview by default.
+#  showProjectsList : true # show projects list by default (if projects data file exists).
+#  projectsUrl : "https://github.com/gohugoio" # title link for projects list
   tocInline : true
   copyright : "mongoberto"
   rss : true
   social:
     - name : "github"
       link : "https://github.com/mongoberto"
-        #- name : "email"
-        #link : "berto.guillaume@hotmail.fr" # no need for "mailto:" at the start
+    - name : "email"
+      link : "monge.guillaume@mongoberto.xyz"
     - name : "linkedin"
       link : "https://www.linkedin.com/in/guillaumeberto/"
+  dateFormat : "2006-01-02" # default
+  show_updated : true # default
+  showReadTime : true # default
 
 markup:
+  tableOfContents:
+    endLevel : 4
+    ordered : false
+    startLevel : 2
   highlight:
     codeFences : true
     guessSyntax : false
     hl_Lines : ""
     lineNoStart : 1
     lineNos : false
-    lineNumbersInTable : true
+    lineNumbersInTable : false
     noClasses : true
     style : "monokai"
     tabWidth : 4
@@ -49,15 +63,15 @@ menu:
     - name : "Home"
       url : "/"
       weight : 1
-    - name : "All posts"
+    - name : "Article"
       url : "/posts"
       weight : 2
-    - name : "Liste de lecture"
-      url : "/toRead"
-      weight : 3
-    - name : "Tags"
-      url : "/tags"
-      weight : 4
-    - name : "About"
-      url : "/about"
-      weight : 5
+#    - name : "Liste de lecture"
+#      url : "/toRead"
+#      weight : 3
+#    - name : "Tags"
+#      url : "/tags"
+#      weight : 4
+#    - name : "About"
+#      url : "/about"
+#      weight : 5

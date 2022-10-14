@@ -1,0 +1,8 @@
+---
+date: 2022-10-14
+title: Json Web Token
+author: mongoberto
+description: Etat de l'art JWT
+---
+
+image::jwt.svg[]
