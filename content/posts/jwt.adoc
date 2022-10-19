@@ -1,8 +1,65 @@
 ---
 date: 2022-10-14
-title: Json Web Token
+title: JSON Web Token
 author: mongoberto
 description: Etat de l'art JWT
 ---
+:toc:
 
-image::jwt.svg[]
+JWT tu connais ? Non vraiment ? Et si je te dis JSON Web Token ça te parle plus ? C'est un peu mieux mais t'as rien contre un petit rappel.
+
+Parlons donc aujourd'hui de ce qui se cache derriere le fameux JWT.
+
+== Definition
+
+Comme son nom l'indique, il s'agit d'un token que l'on pourrait traduire par jeton. Ce dernier porte des informations qui permettront a l'utilisateur de s'authentifier/authoriser (lien[difference entre authentifier et authoriser]) aupres d'un serveur.
+On dit que l'authentification au moyen d'un JWT est stateless car le serveur n'a pas a gerer de donnees relatives a l'utilisateur pour l'authentifier.
+La structure de ce JWT fait ainsi l'objet de la RFC7519 (alias https://en.wikipedia.org/wiki/Request_for_Comments[Request For Comment]), appele aussi specification JWT.
+Cependant le standard JWT est plus complexe que la definition d'un format d'echange. Ainsi ce type de token est le plus souvent, pour ainsi dire toujours, signe. Cela signifie que l'integrite de l'information qu'il porte est verifiable, c'est tout le sujet de la specification JWS. Il peut etre egalement chiffre dans le but de ne divulguer son contenu qu'au destinataire souhaite, la specification JWE decrit cela. La signature ou le chiffrement de ce token sont realises a travers l'utilisation d'un algorithme et d'une cle dedies, les specifications JWA et JWK abordent ces sujets.
+Vous l'aurez donc compris, JWT ne se cantonne pas qu'a la specification eponyme. On denombre au total 5 specifications :
+
+* la https://www.rfc-editor.org/rfc/rfc7515[RFC7515] nomme JWS, acronyme de JSON Web Signature
+* la https://www.rfc-editor.org/rfc/rfc7516[RFC7516] nomme JWE, acronyme de JSON Web Encryption
+* la https://www.rfc-editor.org/rfc/rfc7517[RFC7517] nomme JWK, acronyme de JSON Web Key
+* la https://www.rfc-editor.org/rfc/rfc7518[RFC7518] nomme JWA, acronyme de JSON Web Algorithms
+* la https://www.rfc-editor.org/rfc/rfc7515[RFC7519] nomme JWT, acronyme de JSON Web Token
+
+La specification JWT etant le dernier RFC de la liste par ordre de numerotation, on pourra hypothetiquement en deduire que les autres specifications ont ete redige a son encontre, pouvant legitimer l'abus de langage entre #specification JWT# et #JWT#. C'est pourquoi dans la suite de cet article, nous distinguerons bien les deux termes: le premier se referant a la specification RFC7519 uniquement tandis que le second concernera l'ensemble des specifications RFC7515, RFC7516, RFC7517, RFC7518, et RFC7519.
+
+Si vous avez ete curieux et poursuivi votre navigation vers les differentes specifications, pas de panique ! Les documents paraissent austeres mais nous allons essayer de decortiquer tout cela tranquillement.
+
+== WHY
+Parlons des differentes problematiques que JWT peut adresser car c'est quand meme ce qui interesse le plus grand nombre, les aspects techniques seront abordes plus loin.
+
+Tout d'abord, la specification JWT nous offre une structure simple et concise pour pouvoir echanger des informations necessaires a la gestion de la securisation de nos api.
+Cependant cela ne peut suffire car un grand pouvoir impliquant de grandes responsabilites, comment s'assurer de la veracite de ces informations, comment etre certain que le token
+
+
+Le principal cas d'utilisition de JWT, a mon sens, est tout simplement de permettre de nous assurer de l'integrite des donnees recues. Avouons qu'avec l'emergence des systemes distribues et des communications api, il est bien pratique d'avoir un standard sur lequel s'aligner pour communiquer avec un haut niveau de confiance.
+Attention a la notion d'integrite, on ne pretend pas ici que les donnees n'aient pas ete modifies par un tiers malveillant. Neanmoins nous sommes en mesure, a travers une methode de verification cryptographique, de detecter si les donnees ont ete alterees depuis leur emission.
+
+
+
+Nous detaillerons plus loin la structure de tout cela, je voudrais seulement mettre en lumiere ici un autre service dont on peut beneficier en utilisant JWT: s'assurer de l'authenticite de l'emetteur.
+En effet, selon l'option choisie, en l'occurence la cryptographie asymetrique (dont j'explique le fonctionnement [ici]), il est possible de verifier que l'entite qui nous contacte est bien celle qu'on pense. Enfin la encore il faut nuancer, cela ne signifie pas forcement qu'on
+De la meme maniere, on est en mesure de verifier de facon certaine que l'emetteur est bien celui que l'on pense.
+
+ et par la meme occasion de valider l'authenticite de l'emetteur
+
+== HOW
+
+structure
+
+JWS
+
+JWE
+
+JWA
+
+JWK
+
+
+== WHAT
+
+keycloak, lib jose
+

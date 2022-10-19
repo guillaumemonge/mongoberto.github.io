@@ -15,8 +15,8 @@ security:
 params:
   colortheme : "white" # dark, light, white, or classic
   description : "Les articles que tu trouveras sur ce blog ne représentent que ma compréhension d'un sujet.
-  Il se peut que tu relèves des incohérences au cours de ta lecture, dans ce cas n'hésite pas à me contacter, je serai ravi 
-  d'échanger !"
+  Il se peut que tu relèves des incohérences au cours de ta lecture, dans ce cas n'hésite pas à me contacter, je serai très content 
+  d'échanger"
   mainSection : "posts"
   mainSectionTitle : "Articles"
   showAllPostsOnHomePage : false # default
